@@ -3,10 +3,10 @@ package com.driver;
 public class Pizza {
 
     private int price;
-    private int toppingPrice;
-    private  int cheesePrice;
+    private final int toppingPrice;
+    //private  int cheesePrice;
     private Boolean isVeg;
-    private String bill;
+    private String bill =" ";
 
     boolean isExtraCheeseAdded;
     boolean isExtraToppingsAdded;
@@ -18,7 +18,7 @@ public class Pizza {
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
-        this.bill="";
+        this.bill = "";
 
         if(isVeg){
             this.price=300;
@@ -46,7 +46,7 @@ public class Pizza {
     }
 
     public void addExtraToppings(){
-        if(isExtraToppingsAdded==false){
+        if(!isExtraToppingsAdded){
             this.price+=this.toppingPrice;
             isExtraToppingsAdded=true;
         }
@@ -75,9 +75,9 @@ public class Pizza {
             this.bill+="Total Price:"+this.price;
             isBillCreated=true;
             // your code goes here
-            return this.bill;
+
         }
-        return "";
+        return this.bill;
 
     }
 }
